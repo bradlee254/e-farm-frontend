@@ -1,6 +1,8 @@
 import { Toaster } from 'sonner'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from '@/pages/home'
+import Login from '@/pages/Login'
+import Register from '@/pages/Register'
 
 function App() {
   return (
@@ -10,6 +12,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </BrowserRouter>
     </>

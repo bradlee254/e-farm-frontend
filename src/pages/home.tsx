@@ -1,6 +1,14 @@
-import { ArrowRight, Tractor, ShoppingBasket, Truck, Brain } from "lucide-react";
+import {
+  ArrowRight,
+  Tractor,
+  ShoppingBasket,
+  Truck,
+  Brain,
+} from "lucide-react";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function Home() {
+  const navigate = useNavigate();
   return (
     <main className="min-h-screen bg-background font-sans">
       {/* Navbar */}
@@ -11,23 +19,30 @@ export default function Home() {
               <Tractor size={18} />
             </div>
             <span className="text-[17px] font-medium text-brand-dark tracking-tight">
-              E-Farm 
+              E-Farm
             </span>
           </div>
 
           <div className="hidden md:flex items-center gap-8">
-            {["Marketplace", "Services", "AI Advisory", "Contact"].map((item) => (
-              <a
-                key={item}
-                href="#"
-                className="text-sm text-caption hover:text-brand-dark transition-colors"
-              >
-                {item}
-              </a>
-            ))}
+            {["Marketplace", "Services", "AI Advisory", "Contact"].map(
+              (item) => (
+                <a
+                  key={item}
+                  href="#"
+                  className="text-sm text-caption hover:text-brand-dark transition-colors"
+                >
+                  {item}
+                </a>
+              ),
+            )}
           </div>
 
-          <button className="rounded-lg bg-brand px-5 py-2.5 text-sm font-medium text-white hover:bg-brand-dark transition-colors">
+          <button
+            className="rounded-lg bg-brand px-5 py-2.5 text-sm font-medium text-white hover:bg-brand-dark transition-colors"
+            onClick={() => {
+              navigate("/register");
+            }}
+          >
             Get Started
           </button>
         </div>
@@ -36,7 +51,6 @@ export default function Home() {
       {/* Hero */}
       <section className="mx-auto max-w-7xl px-12 py-20 lg:py-28">
         <div className="grid items-center gap-16 lg:grid-cols-2">
-
           {/* Left */}
           <div>
             <span className="inline-flex items-center gap-1.5 rounded-full bg-[#EEF7E9] px-4 py-1.5 text-[13px] font-medium text-brand-dark mb-6">
@@ -45,8 +59,7 @@ export default function Home() {
             </span>
 
             <h1 className="font-serif text-[62px] font-black leading-[1.05] tracking-[-1.5px] text-foreground mb-6">
-              The Digital{" "}
-              <span className="block text-brand">Ecosystem</span>
+              The Digital <span className="block text-brand">Ecosystem</span>
               for Farmers
             </h1>
 
@@ -81,7 +94,9 @@ export default function Home() {
                   <p className="font-serif text-[28px] font-bold text-brand leading-none mb-1">
                     {s.num}
                   </p>
-                  <p className="text-[12px] text-caption tracking-[0.3px]">{s.label}</p>
+                  <p className="text-[12px] text-caption tracking-[0.3px]">
+                    {s.label}
+                  </p>
                 </div>
               ))}
             </div>
@@ -92,7 +107,9 @@ export default function Home() {
             {/* Float Left */}
             <div className="absolute -left-14 top-12 hidden lg:block bg-background border border-[#E8E8E8] rounded-xl px-4 py-3 shadow-md">
               <p className="text-[11px] text-caption mb-0.5">M-Pesa Payments</p>
-              <p className="text-[15px] font-medium text-brand-dark">Instant Settlement</p>
+              <p className="text-[15px] font-medium text-brand-dark">
+                Instant Settlement
+              </p>
             </div>
 
             {/* Card */}
@@ -115,8 +132,12 @@ export default function Home() {
                     <ShoppingBasket size={16} className="text-white" />
                   </div>
                   <div>
-                    <p className="text-[13px] font-medium text-foreground">Marketplace Orders</p>
-                    <p className="text-[11px] text-caption mt-0.5">Fresh produce available</p>
+                    <p className="text-[13px] font-medium text-foreground">
+                      Marketplace Orders
+                    </p>
+                    <p className="text-[11px] text-caption mt-0.5">
+                      Fresh produce available
+                    </p>
                   </div>
                 </div>
 
@@ -125,8 +146,12 @@ export default function Home() {
                     <Truck size={16} className="text-white" />
                   </div>
                   <div>
-                    <p className="text-[13px] font-medium text-foreground">Logistics Tracking</p>
-                    <p className="text-[11px] text-caption mt-0.5">Delivery routes optimized</p>
+                    <p className="text-[13px] font-medium text-foreground">
+                      Logistics Tracking
+                    </p>
+                    <p className="text-[11px] text-caption mt-0.5">
+                      Delivery routes optimized
+                    </p>
                   </div>
                 </div>
 
@@ -135,8 +160,12 @@ export default function Home() {
                     <Brain size={16} className="text-white" />
                   </div>
                   <div>
-                    <p className="text-[13px] font-medium text-foreground">AI Advisory</p>
-                    <p className="text-[11px] text-caption mt-0.5">Crop recommendations available</p>
+                    <p className="text-[13px] font-medium text-foreground">
+                      AI Advisory
+                    </p>
+                    <p className="text-[11px] text-caption mt-0.5">
+                      Crop recommendations available
+                    </p>
                   </div>
                 </div>
               </div>
@@ -147,8 +176,8 @@ export default function Home() {
                   Today's Insight
                 </p>
                 <p className="text-[13px] leading-[1.7] text-white/75">
-                  Weather conditions are favorable for maize planting in your region.
-                  Recommended irrigation level: Moderate.
+                  Weather conditions are favorable for maize planting in your
+                  region. Recommended irrigation level: Moderate.
                 </p>
               </div>
             </div>
